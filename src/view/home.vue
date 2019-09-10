@@ -59,6 +59,7 @@ export default {
 }
 .nav-wrapper{
     width: 200px;
+    flex-shrink: 0;
 }
 .home-content{
     flex-grow: 1;
