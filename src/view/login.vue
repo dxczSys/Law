@@ -15,13 +15,13 @@
                 <h3>用户注册</h3>
                 <el-form ref="form" :model="form" label-width="80px" style="padding: 0 20px;">
                     <el-form-item label="用户帐号">
-                        <el-input v-model="form.name"></el-input>
+                        <el-input v-model="form.uname"></el-input>
                     </el-form-item>
                     <el-form-item label="用户密码">
-                        <el-input v-model="form.pass"></el-input>
+                        <el-input v-model="form.upasswd" type="password"></el-input>
                     </el-form-item>
                     <el-form-item label="用户邮箱">
-                        <el-input v-model="form.email"></el-input>
+                        <el-input v-model="form.uemail"></el-input>
                     </el-form-item>
                 </el-form>
 
@@ -43,9 +43,9 @@ export default {
             password : '',
             show : true,
             form : {
-                name : '',
-                pass : '',
-                email : ''
+                uname : '',
+                upasswd : '',
+                uemail : ''
             }
         }
     },
@@ -53,10 +53,12 @@ export default {
         login() {
             if (this.username && this.password) {
                 this.$axios({
-                    method: 'get',
-                    url: '/login?username=' + this.username + '&password=' + this.password
+                    method: 'post',
+                    url: '/Law/userLog',
+                    data : { uname : this.username, upasswd : this.password }
                 }).then(res => {
-                    if (res.status == 200 && res.data.flag) {
+                	console.log(res)
+                    if (res.status == 200 && res.data.code == '1') {
                         this.$store.commit(types.LOGIN, { username : res.data.mini, accout : new Date().getTime() })
                         this.$router.go(-1);
                     }else {
@@ -68,7 +70,15 @@ export default {
             }
         },
         regist() {
-            
+            this.$axios({
+            	method : 'post',
+            	url : '/Law/userAdd',
+            	data : this.form
+            }).then(res => {
+            	if (res.code) {
+            		console.log(res)
+            	}
+            })
         }
     },
     mounted() {

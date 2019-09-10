@@ -8,7 +8,7 @@ axios.defaults.timeout = 30000
 
 
 //这和webpack对应，webpack匹配api下的路径，替换成目标服务器target
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = '/Law'
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 

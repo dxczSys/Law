@@ -60,13 +60,13 @@ module.exports = (options = {}) => ({
   },
   devServer: {
     host: '127.0.0.1',
-    port: 8010,
+    port: 8001,
     proxy: {
-      '/api/': {
-        target: 'http://localhost:8090',
+      '/Law/': {
+        target: 'http://localhost:8080',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/Law': ''
         }
       }
     },
