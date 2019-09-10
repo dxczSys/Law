@@ -67,7 +67,8 @@ export default {
     font-size: 16px;
     cursor: pointer;
     height: 60px;
-    background-color: #fff;
+    background-color: #409eff;
+    border-radius: 4px;
     line-height: 60px;
     text-align: right;
     color: #333;

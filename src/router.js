@@ -5,8 +5,6 @@ import store from './store'
 import * as types from './store/type'
 import homeContent from './view/home'
 import login from './view/login'
-import community from './view/community'
-import reply from './view/reply'
 
 
 var router = new VueRouter({
@@ -20,19 +18,6 @@ var router = new VueRouter({
             path : '/login',
             name : 'login',
             component : login
-        },
-        {
-            path : '/community',
-            name : 'community',
-            component : community
-        },
-        {
-            path : '/reply',
-            name : 'reply',
-            component : reply,
-            meta: {
-                requiresAuth: true
-            }
         },
     ]
 })

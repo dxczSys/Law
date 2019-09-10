@@ -3,11 +3,14 @@ import store from './store'
 import * as types from './store/type'
 import router from './router'
 
-// axios 配置
-axios.defaults.timeout = 5000
+// axios 配置   请求超时时间
+axios.defaults.timeout = 30000
+
+
 //这和webpack对应，webpack匹配api下的路径，替换成目标服务器target
 axios.defaults.baseURL = '/api'
 axios.defaults.headers.post['Content-Type'] = 'application/json';
+
 
 // http request 拦截器
 axios.interceptors.request.use(
@@ -42,7 +45,6 @@ axios.interceptors.response.use(
             })
       }
     }
-    // console.log(JSON.stringify(error));//console : Error: Request failed with status code 402
     return Promise.reject(error.response.data)
   },
 )
