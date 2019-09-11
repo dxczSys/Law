@@ -1,14 +1,6 @@
 <template>
     <div class="wrapper">
         <div class="nav-wrapper">
-            <!-- <el-menu class="el-menu-vertical-demo" :default-active="index" mode="vertical"  background-color="#545c64" active-text-color="#ffd04b">
-                <el-menu-item index="1" @click="index = '1'">
-                    <router-link to="/">首页</router-link>
-                </el-menu-item>
-                <el-menu-item index="2" @click="index = '2'">
-                    <router-link to="/community">社区</router-link>
-                </el-menu-item>
-            </el-menu> -->
             <el-menu :default-active="index" class="el-menu-vertical-demo"  background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
                 <el-menu-item index="1" @click="index = '1'" v-if="username == 'admin'">
                     <i class="iconfont icontouxiang"></i>
@@ -56,6 +48,8 @@ export default {
 <style lang="scss" scoped>
 .wrapper{
     display: flex;
+    width: 1190px;
+    margin: 0 auto;
 }
 .nav-wrapper{
     width: 200px;
