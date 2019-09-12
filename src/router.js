@@ -22,14 +22,14 @@ var router = new VueRouter({
     ]
 })
 // 页面刷新时，重新赋值token
-if (cookie.get('token')) {
-    let num = (new Date().getTime() - parseInt(cookie.get('token'))) / 60000 
-    if (num < 0.1) {
-        store.commit(types.LOGIN, { username : cookie.get('username'), accout : new Date().getTime() })
-    }else {
-        store.commit(types.LOGOUT)
-    }
-}
+//if (cookie.get('token')) {
+//  let num = (new Date().getTime() - parseInt(cookie.get('token'))) / 60000 
+//  if (num < 0.1) {
+//      store.commit(types.LOGIN, { username : cookie.get('username'), accout : new Date().getTime() })
+//  }else {
+//      store.commit(types.LOGOUT)
+//  }
+//}
 
 //注册全局钩子用来拦截导航
    router.beforeEach((to, from, next) => {

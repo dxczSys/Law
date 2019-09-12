@@ -58,8 +58,8 @@ export default {
                     data : { uname : this.username, upasswd : this.password }
                 }).then(res => {
                 	console.log(res)
-                    if (res.status == 200 && res.data.code == '1') {
-                        this.$store.commit(types.LOGIN, { username : res.data.mini, accout : new Date().getTime() })
+                    if (res.status == 200 && res.data.code) {
+                        this.$store.commit(types.LOGIN, { username : this.username, accout : new Date().getTime() })
                         this.$router.go(-1);
                     }else {
                         this.$message.warning('用户名或密码错误');
@@ -75,8 +75,9 @@ export default {
             	url : '/Law/userAdd',
             	data : this.form
             }).then(res => {
-            	if (res.code) {
-            		console.log(res)
+            	if (res.data.code) {
+            		this.$message.success('注册成功！')
+            		this.show = !this.show
             	}
             })
         }
@@ -91,8 +92,11 @@ export default {
 .login-wrapper{
     position: relative;
     background-image: url('../../static/images/login-bg.jpg');
-    height: 815px;
+    height: 600px;
     background-size: 100% 100%;
+    width: 1190px;
+    margin: 0 auto;
+    
 }
 .box{
     width: 340px;

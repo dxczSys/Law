@@ -40,7 +40,7 @@ export default {
 
     computed : {
         username() {
-            return store.state.user.username
+            return store.state.user.username || this.$cookie.get('username')
         }
     }
 }

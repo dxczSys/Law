@@ -35,7 +35,7 @@ export default {
     components : { userTable, fileList },
     data() {
         return {
-            index : '1',
+            index : '2',
             username : '',
         }
     },
